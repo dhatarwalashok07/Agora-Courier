@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express=require("express"),path=require("path");
 const app=express(); app.use(express.json({limit:"50kb"})); app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static("public"));
 const PORT=process.env.PORT||3000, BASE="https://apiv2.shiprocket.in/v1/external";
 let cache={token:null,until:0};
 const pinOK=p=>/^[1-9][0-9]{5}$/.test(String(p||"").trim());
